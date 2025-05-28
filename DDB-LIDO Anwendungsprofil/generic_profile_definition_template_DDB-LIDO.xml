@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (Simon Sendler 2022–2023).
+	Licensed under the EUPL–1.2 or later.
+-->
+<lidoProfile
+	xmlns="http://www.lido-schema.org/lidoProfile/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:lido="http://www.lido-schema.org"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+	xmlns:tei="http://www.tei-c.org/ns/1.0">
+	
+	<schemaMeta>
+		<URI LOCTYPE="URN"><!-- profile identifier --></URI>
+		<title xml:lang="de">DDB-LIDO Anwendungsprofil</title>
+		<author xml:id="author1">Fachstelle Museum der Deutschen Digitalen Bibliothek</author>
+		<author xml:id="author2"><!-- profile author (repeatable) --></author>
+		
+		<contributor xml:id="editor1" role=""><!-- additional responsible party, identified further by @role (repeatable) --></contributor>
+		<publisher/>
+		
+		<!-- licence: CC-BY 4.0 recommended -->
+		<licence target="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</licence>
+		<date when-iso="2025">Publikationsdatum</date>
+		<revision>
+			<!-- at least 1 change/@n must be present -->
+			<!-- change/@n must conform to the format: n.n -->
+			<change n="1.0" when="" who="#author1"></change>
+		</revision>
+		<abstract><!-- This profile documents... (optional) --></abstract>
+	</schemaMeta>
+	
+	<schemaDoc xml:lang="de"> 
+		<!--  <tei:text>
+			<tei:div type="guideline_introduction">
+				<tei:head>Introduction</tei:head>
+				<tei:p>This is a generic template for an
+					<tei:choice>
+						<tei:abbr>LPD</tei:abbr>
+						<tei:expan>LIDO Profile Definition (not a real abbreviation)</tei:expan>
+					</tei:choice>. The profile creation workflow will use the information provied in <tei:gi>profile:schemaDoc</tei:gi> to create a basic HTML documentation to accompany the profile XSD.
+				</tei:p>
+			</tei:div>
+			<tei:div type="guideline_documentation">
+				<tei:head>How to Create Profile Documentation</tei:head>
+				<tei:div>
+					<tei:head>Using TEI Lite to Write Documentation</tei:head>
+				<tei:p>Allowed child elements for <tei:gi>profile:schemaDoc</tei:gi> are any described in the <ref target="https://tei-c.org/guidelines/customization/lite/">TEI Lite specification</ref> as seen in this sample text. Users may choose to include a complete TEI document including a <tei:gi>tei:teiHeader</tei:gi> for any metadata they might need beyond that declared in the profile definition header. All relevant metadata for the profile creation workflow <emph>MUST</emph> be provided within <tei:gi>profile:schemaMeta</tei:gi>. Without a <tei:gi>tei:teiHeader</tei:gi>, the element <tei:gi>profile:schemaDoc</tei:gi> must contain one <tei:gi>tei:text</tei:gi> child, which in turn may include any allowed descendants according to TEI Lite.</tei:p>
+				<tei:p></tei:p>
+				<tei:p>
+					<tei:figure>
+						<tei:graphic url="fig1.png"/>
+						<tei:head>Figure One: An expressive caption for this figure. Optional.</tei:head>
+						<tei:figDesc>An expressive description of the included figure to be included as the <tei:att>alt</tei:att>-Attribute of <tei:gi>html:img</tei:gi>.</tei:figDesc>
+					</tei:figure>
+				</tei:p>
+				<tei:p>As this is a generic workflow, users are welcome to enhance their documentation in any way they might feel necessary (for example by including additional metadata, as mentioned above). They might further produce additional or enhanced ancillary documents such an additional documentation in another format (e.g. PDF) or a second, extended HTML documentation. Users should keep in mind, however, that any additional documents' purpose is to extend aspects of the documentation created by this workflow more in-depth or create additional resources for prospective users of a LIDO application profile. As such, they must not contain any necessay information not included in the HTML created by this workflow.</tei:p>
+			</tei:div>
+			<tei:div>
+				<tei:head>How to Structure Your Documentation</tei:head>
+				<tei:p>Most of the transformations from TEI-XML to HTML used by the LIDO application profile workflow are straightforward. Through the use of specific values of <tei:att>@type</tei:att> for certain elements, users can determine the resulting transformation. <tei:gi>tei:div</tei:gi> with a <tei:att>@type</tei:att> starting with <tei:q>guideline_</tei:q> are transformed into <tei:gi>html:section</tei:gi>, allowing users to use semantic markup for the structure of their document as they see fit.</tei:p>
+				<tei:p>The suggested way is to first explain the rationale of an application profile and its usage before documenting any changes to elements or attributes of the LIDO Schema, as well as any additional Schematron rules introduced in the application profile. The next section of this document explains how to document these changes.</tei:p>
+			</tei:div>
+		</tei:div>
+		<tei:div type="guideline_elements">
+			<tei:head>How to Document Changes to the LIDO Schema and Additional Schematron Rules</tei:head>
+			<tei:p>Users can document specific changes made to the LIDO Schema and new Schematron rules either automatically or by hand. Both create HTML similar in appearance to the official LIDO HTML documentation for elements, attributes, and Schematron rules, such as <tei:ref target="https://lido-schema.org/schema/v1.1/lido-v1.1.html#applicationProfile">this section documenting <tei:gi>lido:applicationProfile</tei:gi></tei:ref>.</tei:p>
+			<tei:p><tei:hi>Automatic documentation</tei:hi> allows for the creation of simple yet practical blocks of documentation. It creates one or more blocks of documentation generated directly from the <tei:gi>profile:elementSpec</tei:gi> and <tei:gi>profile:constraintSpec</tei:gi> elements included in the profile definition. Automatic documentation is invoked by the <tei:gi>profile:document</tei:gi> element. This element must have the <tei:att>target</tei:att>-attribute. The attribute contains one or more <tei:att>@xml:id</tei:att> separated by whitespace to create a documentation of the changes made to the respective elements from the information provided in the profile definition. It is also possible to reference any of the four allowed values for <tei:att>@mode</tei:att>, resulting in documentation for all <tei:gi>profile:elementSpec</tei:gi> with the corresponding <tei:att>@mode</tei:att>. To similarly produce documentation for all Schematron rules, use <tei:att>@target="contraints"</tei:att>.</tei:p>
+			<tei:p><tei:hi>Manual documentation</tei:hi> allows users to create custom blocks of documentation such as this example:</tei:p>
+			<tei:div type="ap_unit">
+				<tei:head>Element Name</tei:head>
+				<tei:div type="ap_description">A unique identification of the application profile used to create the LIDO record.
+					<tei:div type="ap_type_attribute">An attribute for the particular kind of identifier used, whether it is an IRI, a URI, or a Local identifier.</tei:div>
+				</tei:div>
+				<tei:div type="ap_label">Application Profile</tei:div>
+				<tei:div type="ap_structure">
+					<div type="ap_contained_by"><tei:ref target="An attribute for the particular kind of identifier used, whether it is an IRI, a URI, or a Local identifier.">lido</tei:ref></div>
+				</tei:div>
+			</tei:div>
+		</tei:div>
+		</tei:text> -->
+	</schemaDoc> 
+	<!-- schemaDoc tei auskommentiert, weil nur wichitg für html dokumentation des Anwendungsprofils -->
+	
+	<schemaSpec base="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd">
+		<!-- müssen wir dieses import namespace element mitnehmen? AP Malerei und AP Architektur haben das nicht -->
+		<!--<import namespace="http://www.lido-schema.org/quality-assurance" schemaLocation="http://www.lido-schema.org/schema/v1.1/lido-v1.1-public-beta-schematron-rules.xsd"/> -->
+		<!-- welchen namespace und schemaLocation wollen/müssen wir importieren (lido 1.0 ?) -->
+		
+		<!-- elementSpec map to element@elementID/ -->
+		<!-- mode=add/change/replace/delete -->
+		<!-- sch:pattern map to element@elementID/xs:appinfo -->
+		
+		<!-- Beipspiele // Infos // -->
+		
+		<elementSpec name="XXX" xml:id="XXX" mode="change" maxOccurs="unbounded" minOccurs="1">
+			<!--<sch:pattern>
+				<sch:rule context="lido:lidoRecID">
+					<sch:extends rule="sch_pref"/>
+					<sch:extends rule="sch_alternate"/> 
+					<sch:extends rule="eodem_noempty"/> 
+					<sch:extends rule="eodem_identifier_type"/> 
+				</sch:rule>
+				</sch:pattern> --> <!-- Was sind das für Schematron-Regeln? -->
+		</elementSpec>
+		
+		<elementSpec xml:id="???" mode="add">[Declaration]</elementSpec>
+		<elementSpec xml:id="???" mode="replace">[Declaration]</elementSpec>
+		<elementSpec xml:id="???" mode="delete">[Declaration]</elementSpec>
+		
+		<!-- ElementSpec: Veränderungen an Elementen und Attributen -->
+		
+		<!-- ElementSpec: Veränderungen bzgl Kardinalität, Abweichung vom LIDO: lidoRecID, recordSource/legalBodyID, recordRights/rightsType/conceptID; Hinweis: fatal oder warn (sch:assert role="fatal") -->
+		
+		<elementSpec name="lidoRecID" xml:id="lidoRecID" mode="change" maxOccurs="1" minOccurs="1">
+		</elementSpec>
+		
+		<elementSpec name="legalBodyID" xml:id="legalBodyID" mode="change" maxOccurs="1" minOccurs="1">
+		</elementSpec>
+		
+		<elementSpec name="conceptID" xml:id="lidoRecID" mode="change" maxOccurs="1" minOccurs="1">
+		</elementSpec>
+
+		<!-- ConstraintSpec: Schematron Rules -->
+		
+		<constraintSpec xml:id="???" mode="add">
+			<constraint>
+				<sch:pattern>
+					<sch:title></sch:title>
+					<sch:p></sch:p>
+					<sch:rule
+						context=""
+						id=""
+						role="">
+						<sch:assert
+							test="">
+						</sch:assert>
+					</sch:rule>
+				</sch:pattern>
+			</constraint>
+		</constraintSpec>
+	</schemaSpec>
+</lidoProfile>

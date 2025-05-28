@@ -1,0 +1,125 @@
+/*
+	Copyright (Simon Sendler 2022–2023).
+	Licensed under the EUPL–1.2 or later.
+*/
+:root {
+    /* Colors */
+    --color-bg-contrast: #fdfdfd;
+    --color-bg: #fefefe;
+    --color-font: #333;
+    --color-primary: #BC8B29;
+    --color-secondary: #549E9E;
+    --color-light: #eee;
+}
+
+html {
+    display: flex;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-font);
+	font-family: Verdana, Tahoma, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 110%;
+    line-height: 1.4;
+    margin: 0 auto;
+}
+
+p, section, .ap-unit {
+    max-width: 70ch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    font-weight: 300;
+    margin: 1em 0 0.5em;
+}
+
+pre {
+    overflow: scroll;
+}
+
+ul {
+    list-style: circle;
+}
+
+a {
+    color: var(--color-secondary);
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+.ap-unit,
+.sch_pattern {
+    border-bottom: 1px solid var(--color-font);
+}
+
+.ap-unit > [class*="ap_"],
+.sch_rule {
+    margin-top: 1em;
+    border-bottom: 1px solid var(--color-light);
+    padding-bottom: 0.5em;
+}
+
+[class*="ap_"] > [class*="ap_"] {
+    align-items: start;
+    column-gap: 1em;
+    display: grid;
+    grid-template-areas:
+        "label content"
+        "label content"
+        "label content";
+    grid-template-columns: 10em auto;
+    justify-items: stretch;
+    margin: 1em 0 0.5em 2em;
+}
+
+[class*="ap_"] > div > * {
+    display: block;
+    margin-top: 0;
+}
+
+[class*="ap_"] span {
+    color: var(--color-primary);
+    display: inline-block;
+    grid-area: label;
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+
+[class*="ap_"] span ~ * {
+    grid-area: content;
+    margin-left: 1em;
+}
+
+[class*="ap_"] ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ap-unit h4 {
+    font-weight: 300;
+    margin-top: 0;
+}
+
+h4.attribute {
+    color: var(--color-font);
+    font-weight: 600;
+}
+
+.element {
+    color: var(--color-primary);
+}
+
+.attribute {
+    color: var(--color-secondary);
+}
+
+.sch_rules h3 {
+    font-size: 1.5em;
+}
+.sch_rules h4 {
+    font-size: 1.17em;
+}
