@@ -1,4 +1,4 @@
 # ddb-metadata-lido-schema
-XML-Schema for DDB-LIDO
+Entwicklung eines XML-Schema für das DDB-LIDO-Anwendungsprofil unter Verwendung des "Generic LIDO Application Profile Workflow" (vgl. https://gitlab.gwdg.de/lido/profiles)
 
-work in Progress der Fachtelle Museum
+*Work-in-Progress der Fachtelle Museum*
