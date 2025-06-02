@@ -34,7 +34,7 @@
 	<schemaDoc xml:lang="de"> 
 		<!--  <tei:text>
 			<tei:div type="guideline_introduction">
-				<tei:head>Introduction</tei:head>
+				<tei:head>Einleitung</tei:head>
 				<tei:p>This is a generic template for an
 					<tei:choice>
 						<tei:abbr>LPD</tei:abbr>
@@ -80,8 +80,8 @@
 			</tei:div>
 		</tei:div>
 		</tei:text> -->
-	</schemaDoc> 
-	<!-- schemaDoc tei auskommentiert, weil nur wichitg für html dokumentation des Anwendungsprofils -->
+		</schemaDoc> 
+	<!-- schemaDoc TEI auskommentiert, weil nur wichitg für html dokumentation des Anwendungsprofils -->
 	
 	<schemaSpec base="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd">
 		<!-- müssen wir dieses import namespace element mitnehmen? AP Malerei und AP Architektur haben das nicht -->
