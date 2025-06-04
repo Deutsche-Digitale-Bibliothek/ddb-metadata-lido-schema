@@ -9,10 +9,12 @@
 	xmlns:lido="http://www.lido-schema.org"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-	xmlns:tei="http://www.tei-c.org/ns/1.0">
+	xmlns:tei="http://www.tei-c.org/ns/1.0"
+	xmlns:profile="http://www.lido-schema.org/lidoProfile/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	
 	<schemaMeta>
-		<URI LOCTYPE="URN"><!-- profile identifier --></URI>
+		<URI LOCTYPE="URN">ddb</URI>
 		<title xml:lang="de">DDB-LIDO Anwendungsprofil</title>
 		<author xml:id="author1">Fachstelle Museum der Deutschen Digitalen Bibliothek</author>
 		<author xml:id="author2"><!-- profile author (repeatable) --></author>
@@ -28,7 +30,8 @@
 			<!-- change/@n must conform to the format: n.n -->
 			<change n="1.0" when="" who="#author1"></change>
 		</revision>
-		<abstract><!-- This profile documents... (optional) --></abstract>
+		<abstract xml:lang="en">This profile corresponds to the specifications for LIDO datasets that are documented for transfer to the Deutsche Digitale Bibliothek in the DDB LIDO application profile. It explains all the elements and attributes that are important in the Deutsche Digitale Bibliothek portal for display, search filters or transfer to the Europeana portal.</abstract>
+		<abstract xml:lang="de">Dieses Profil entspricht den Vorgaben zu LIDO-Datensätzen, die für Weitergabe an die Deutsche Digitale Bibliothek im DDB-LIDO-Anwendungsprofil dokumentiert sind. Darin werden all jene Elemente und Attribute, die im Portal Deutsche Digitale Bibliothek für die Anzeige, Suchfilter oder die Weitergabe an das Portal Europeana von Bedeutung sind erläutert.</abstract>
 	</schemaMeta>
 	
 	<schemaDoc xml:lang="de"> 
@@ -81,7 +84,7 @@
 		</tei:div>
 		</tei:text> -->
 		</schemaDoc> 
-	<!-- schemaDoc TEI auskommentiert, weil nur wichitg für html dokumentation des Anwendungsprofils -->
+	<!-- schemaDoc TEI auskommentiert, weil nur wichtig für html dokumentation des Anwendungsprofils? -->
 	
 	<schemaSpec base="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd">
 		<!-- müssen wir dieses import namespace element mitnehmen? AP Malerei und AP Architektur haben das nicht -->
@@ -125,6 +128,8 @@
 		<!-- ConstraintSpec: Schematron Rules -->
 		
 		<constraintSpec xml:id="???" mode="add">
+			
+			
 			<constraint>
 				<sch:pattern>
 					<sch:title></sch:title>
